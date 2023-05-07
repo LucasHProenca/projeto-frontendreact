@@ -1,11 +1,15 @@
 import React from "react";
 import Items from "../Items/Items";
+import { CardDoCart } from "./cartStyle";
 
 const Cart = () => {
     return(
-        <div>
+        <CardDoCart>
+            <h2>
+                Cart
+            </h2>
             <Items/>
-        </div>
+        </CardDoCart>
     )
 }
 
