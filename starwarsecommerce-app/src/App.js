@@ -5,6 +5,7 @@ import Home from './Components/Home/Home';
 import Cart from './Components/ShoppingCart/Cart/Cart';
 import styled, {createGlobalStyle} from 'styled-components';
 import { Principal } from './styleApp';
+import ProductsList from './assets/productsList';
 
 const GlobalStyle = createGlobalStyle`
 html{
@@ -28,8 +29,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
 `
+
+
 
 function App() {
   return (
@@ -37,7 +39,7 @@ function App() {
     <GlobalStyle/>
     <Principal>
       <Filters/>
-      <Home/>
+      <Home lista = {ProductsList}/>
       <Cart/>
     </Principal>
     </>

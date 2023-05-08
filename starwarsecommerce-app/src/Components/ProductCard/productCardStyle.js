@@ -1,18 +1,20 @@
 import styled from "styled-components";
 
 export const CardProduto = styled.div`
-display: grid;
-  grid-template-rows: 3fr 1fr;
-  grid-template-columns: 1fr;
+display: flex;
+  flex-direction: column;
   border-style: solid;
   border-width: thin;
-  align-items: start;
-  justify-items: stretch;
-  height: 40vh;
+  height: 60vh;
   width: 20vw;
+  justify-content: flex-start;
 
+img{
+  width: 100%;
+  height: 60%;
+}
 p{
-    padding: 1rem;
+    padding: 0.5rem;
 }
 
 button {
