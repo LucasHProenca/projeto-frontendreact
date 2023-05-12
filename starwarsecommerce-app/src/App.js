@@ -6,6 +6,7 @@ import Cart from './Components/ShoppingCart/Cart/Cart';
 import styled, {createGlobalStyle} from 'styled-components';
 import { Principal } from './styleApp';
 import ProductsList from './assets/productsList';
+import { useState } from 'react';
 
 const GlobalStyle = createGlobalStyle`
 html{
@@ -34,13 +35,61 @@ code {
 
 
 function App() {
+
+  const [minFilter, setMinFilter] = useState ("")
+
+  const onChangeMinFilter = (event) => {
+    event.preventDefault()
+    setMinFilter(event.target.value)
+  }
+
+  const [maxFilter, setMaxFilter] = useState("")
+
+  const onChangeMaxFilter = (event) => {
+    event.preventDefault()
+    setMaxFilter(event.target.value)
+  }
+
+  const [searchFilter, setSearchFilter] = useState("")
+
+  const onChangeSearchFilter = (event) => {
+    event.preventDefault()
+    setSearchFilter(event.target.value)
+  }
+
+  const [cart, setCart] = useState("")
+
+  const onChangeCart = (event) => {
+    event.preventDefault()
+    setCart(event.target.value)
+  }
+
+  const [amount, setAmount] = useState("")
+
+  const onChangeAmount = (event) => {
+    event.preventDefault()
+    setAmount(event.target.value)
+  }
+
   return (
     <>
     <GlobalStyle/>
     <Principal>
-      <Filters/>
+      <Filters 
+      minFilter = {minFilter}
+      onChangeMinFilter = {onChangeMinFilter}
+      maxFilter = {maxFilter}
+      onChangeMaxFilter = {onChangeMaxFilter}
+      searchFilter = {searchFilter}
+      onChangeSearchFilter = {onChangeSearchFilter}
+      />
       <Home lista = {ProductsList}/>
-      <Cart/>
+      <Cart 
+      cart = {cart}
+      onChangeCart = {onChangeCart}
+      amount = {amount}
+      onChangeAmount = {onChangeAmount}
+      />
     </Principal>
     </>
   );
