@@ -2,12 +2,12 @@ import React from "react";
 import ProductCard from "../ProductCard/ProductCard";
 import { DisposicaoCards, OrdemProdutos, TelaPrincipal } from "./homeStyle";
 
-const Home = () => {
+const Home = (props) => {
     return (
         <TelaPrincipal>
             <OrdemProdutos>
             <p className="quantidadeProdutos">
-                Quantidade de produtos:
+                Quantidade de produtos: {props.lista.length}
             </p>
             <p className="Ordenação">
                 Ordenação: 
@@ -15,9 +15,9 @@ const Home = () => {
             </p>
             </OrdemProdutos>
             <DisposicaoCards>
-            <ProductCard/>
-            <ProductCard/>
-            <ProductCard/>
+            <ProductCard lista = {props.lista[0]}/>
+            <ProductCard lista = {props.lista[1]}/>
+            <ProductCard lista = {props.lista[2]}/>
             </DisposicaoCards>
         </TelaPrincipal>
     )

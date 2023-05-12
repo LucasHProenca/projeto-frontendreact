@@ -1,15 +1,15 @@
 import React from "react";
 import { CardProduto } from "./productCardStyle";
 
-const ProductCard = () => {
+const ProductCard = (props) => {
     return(
         <CardProduto>
-            <img src="" alt="Produto"/>
+            <img src={props.lista.imageUrl} alt="Produto"/>
             <p>
-                Nome do Produto:
+                {props.lista.name}
             </p>
             <p>
-                Valor:
+                R$ {props.lista.value}
             </p>
             <button>
                 Adicionar ao carrinho

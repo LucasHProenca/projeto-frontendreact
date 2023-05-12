@@ -5,7 +5,7 @@ position: fixed;
 left: 0;
 top: 0;
 border: 1px solid black;
-height: 50vh;
+height: 70vh;
 width: 15vw;
 text-align: left;
 padding: 0.5rem;
