@@ -14,6 +14,7 @@ margin: 0.5rem;
 input{
     display: block;
     margin: 0.5rem;
+    width: 80%;
 }
 
 

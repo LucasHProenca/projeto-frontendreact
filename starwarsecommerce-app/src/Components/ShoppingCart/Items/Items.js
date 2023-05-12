@@ -8,9 +8,6 @@ const Items = () => {
                 x0 Nome do Produto
                 <button>Remover</button>
             </p>
-            <p>
-                Valor Total: 0
-            </p>
         </CardItem>
     )
 }
