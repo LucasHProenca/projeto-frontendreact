@@ -83,7 +83,12 @@ function App() {
       searchFilter = {searchFilter}
       onChangeSearchFilter = {onChangeSearchFilter}
       />
-      <Home lista = {ProductsList}/>
+      <Home lista = {ProductsList}
+      cart = {cart}
+      onChangeCart = {onChangeCart}
+      amount = {amount}
+      onChangeAmount = {onChangeAmount}
+      />
       <Cart 
       cart = {cart}
       onChangeCart = {onChangeCart}

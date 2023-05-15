@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import ProductCard from "../ProductCard/ProductCard";
 import { DisposicaoCards, OrdemProdutos, TelaPrincipal } from "./homeStyle";
 
-const Home = (props) => {
+const Home = ({lista,
+cart,
+onChangeCart,
+amount,
+onChangeAmount}) => {
 
     const [ordination, setOrdination] = useState("")
     const onChangeOrdination = (event) => {
@@ -10,11 +14,13 @@ const Home = (props) => {
         setOrdination(event.target.value)
     }
 
+    console.log(ordination)
+
     return (
         <TelaPrincipal>
             <OrdemProdutos>
                 <p className="quantidadeProdutos">
-                    Quantidade de produtos: {props.lista.length}
+                    Quantidade de produtos: {lista.length}
                 </p>
                 <p className="Ordenação">
                     Ordenação:
@@ -25,9 +31,9 @@ const Home = (props) => {
                 </p>
             </OrdemProdutos>
             <DisposicaoCards>
-                <ProductCard lista={props.lista[0]} />
-                <ProductCard lista={props.lista[1]} />
-                <ProductCard lista={props.lista[2]} />
+                <ProductCard lista={lista[0]} />
+                <ProductCard lista={lista[1]} />
+                <ProductCard lista={lista[2]} />
             </DisposicaoCards>
         </TelaPrincipal>
     )

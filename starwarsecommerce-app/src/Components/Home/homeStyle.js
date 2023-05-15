@@ -5,12 +5,16 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items:center;
+width: 100vw;
+
 `
 export const OrdemProdutos = styled.div `
 display: flex;
 flex-direction: row;
-justify-content: space-around;
-width: 100%;
+justify-content: space-between;
+align-items: center;
+width: 62%;
+
 
 `
 
