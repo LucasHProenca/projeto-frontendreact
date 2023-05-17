@@ -17,14 +17,14 @@ const Filters = ({ minFilter,
             <h2>
                 Filters
             </h2>
-            <label>Valor Mínimo:
-                <input id="valorMinimo" placeholder="Digite o valor mínimo" value={minFilter} onChange={onChangeMinFilter}></input>
+            <label htmlFor="valorminimo">Valor Mínimo:
+                <input min={0} type={"number"} id="valorMinimo" placeholder="Digite o valor mínimo" value={minFilter} onChange={onChangeMinFilter}></input>
             </label>
-            <label>Valor Máximo:
-                <input id="valorMaximo" placeholder="Digite o valor máximo" value={maxFilter} onChange={onChangeMaxFilter}></input>
+            <label htmlFor="valorMaximo">Valor Máximo:
+                <input min={0} type={"number"} id="valorMaximo" placeholder="Digite o valor máximo" value={maxFilter} onChange={onChangeMaxFilter}></input>
             </label>
 
-            <label>Busca por nome:
+            <label htmlFor="buscaNome">Busca por nome:
                 <input id="buscaNome" placeholder="Digite o nome do produto" value={searchFilter} onChange={onChangeSearchFilter}></input>
             </label>
 

@@ -22,3 +22,13 @@ button {
     margin: 0 auto;
 }
 `
+export const TesteCard = styled.article`
+display: flex;
+flex-direction: row;
+justify-content: flex-start;
+align-items: center;
+gap: 1rem;
+width: 63%;
+flex-wrap: wrap;
+
+`
