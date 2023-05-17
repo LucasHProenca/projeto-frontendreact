@@ -19,6 +19,20 @@ const ProductsList =
       name: "Produto 3",
       value: 500.0,
       imageUrl: "https://picsum.photos/300/335?a=3"
+    },
+
+    {
+      id: 4,
+      name: "Produto 4",
+      value: 700.0,
+      imageUrl: "https://picsum.photos/300/335?a=3"
+    },
+
+    {
+      id: 5,
+      name: "Produto 5",
+      value: 10000.0,
+      imageUrl: "https://picsum.photos/300/335?a=1"
     }
   ];
 

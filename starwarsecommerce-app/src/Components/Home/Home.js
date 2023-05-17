@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import ProductCard from "../ProductCard/ProductCard";
-import { DisposicaoCards, OrdemProdutos, TelaPrincipal } from "./homeStyle";
+import { OrdemProdutos, TelaPrincipal } from "./homeStyle";
 
 const Home = ({lista,
 cart,
 onChangeCart,
 amount,
-onChangeAmount}) => {
+onChangeAmount,
+adicionaProduto}) => {
 
     const [ordination, setOrdination] = useState("")
     const onChangeOrdination = (event) => {
@@ -30,11 +31,12 @@ onChangeAmount}) => {
                     </select>
                 </p>
             </OrdemProdutos>
-            <DisposicaoCards>
-                <ProductCard lista={lista[0]} />
-                <ProductCard lista={lista[1]} />
-                <ProductCard lista={lista[2]} />
-            </DisposicaoCards>
+                <ProductCard lista = {lista} 
+                cart = {cart} 
+                onChangeCart = {onChangeCart} 
+                amount = {amount} 
+                onChangeAmount = {onChangeAmount} 
+                adicionaProduto = {adicionaProduto} />
         </TelaPrincipal>
     )
 }

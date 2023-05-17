@@ -3,7 +3,7 @@ import './App.css';
 import Filters from './Components/Filters/Filters';
 import Home from './Components/Home/Home';
 import Cart from './Components/ShoppingCart/Cart/Cart';
-import styled, {createGlobalStyle} from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import { Principal } from './styleApp';
 import ProductsList from './assets/productsList';
 import { useState } from 'react';
@@ -36,7 +36,9 @@ code {
 
 function App() {
 
-  const [minFilter, setMinFilter] = useState ("")
+
+
+  const [minFilter, setMinFilter] = useState("")
 
   const onChangeMinFilter = (event) => {
     event.preventDefault()
@@ -57,8 +59,7 @@ function App() {
     setSearchFilter(event.target.value)
   }
 
-  const [cart, setCart] = useState("")
-
+  const [cart, setCart] = useState([])
   const onChangeCart = (event) => {
     event.preventDefault()
     setCart(event.target.value)
@@ -71,31 +72,75 @@ function App() {
     setAmount(event.target.value)
   }
 
+  const adicionaProduto = (produto) => {
+    const newProduct = cart.find((item) => item.id === produto.id)
+    if (newProduct === undefined) {
+      setCart([...cart, { ...produto, amount: 1 }])
+    } else {
+      const newCart = cart.map((item) => {
+        if (item.id === produto.id) {
+          return { ...newProduct, amount: newProduct.amount + 1 }
+        } else {
+          return item
+        }
+      })
+      setCart(newCart)
+      console.log(setCart)
+    }
+  }
+
+  const removeProduto = (produto) => {
+    const ProdutosToDelete = cart.find((item) => item.id === produto.id)
+    if (ProdutosToDelete.amount > 1) {
+      const newCart = cart.map((item) => {
+        if (item.id === produto.id) {
+          return { ...ProdutosToDelete, amount: ProdutosToDelete.amount - 1 }
+        } else {
+          return item
+        }
+      })
+
+      setCart(newCart)
+
+    } else {
+      const newCart = cart.filter((item) => {
+        return item.id !== produto.id
+      })
+      setCart(newCart)
+    }
+  }
+
+
+
   return (
     <>
-    <GlobalStyle/>
-    <Principal>
-      <Filters 
-      minFilter = {minFilter}
-      onChangeMinFilter = {onChangeMinFilter}
-      maxFilter = {maxFilter}
-      onChangeMaxFilter = {onChangeMaxFilter}
-      searchFilter = {searchFilter}
-      onChangeSearchFilter = {onChangeSearchFilter}
-      />
-      <Home lista = {ProductsList}
-      cart = {cart}
-      onChangeCart = {onChangeCart}
-      amount = {amount}
-      onChangeAmount = {onChangeAmount}
-      />
-      <Cart 
-      cart = {cart}
-      onChangeCart = {onChangeCart}
-      amount = {amount}
-      onChangeAmount = {onChangeAmount}
-      />
-    </Principal>
+      <GlobalStyle />
+      <Principal>
+        <Filters
+          minFilter={minFilter}
+          onChangeMinFilter={onChangeMinFilter}
+          maxFilter={maxFilter}
+          onChangeMaxFilter={onChangeMaxFilter}
+          searchFilter={searchFilter}
+          onChangeSearchFilter={onChangeSearchFilter}
+        />
+        <Home
+          lista={ProductsList}
+          cart={cart}
+          onChangeCart={onChangeCart}
+          amount={amount}
+          onChangeAmount={onChangeAmount}
+          adicionaProduto={adicionaProduto}
+        />
+        <Cart
+          cart={cart}
+          onChangeCart={onChangeCart}
+          amount={amount}
+          onChangeAmount={onChangeAmount}
+          removeProduto={removeProduto}
+          
+        />
+      </Principal>
     </>
   );
 }

@@ -1,13 +1,25 @@
 import React from "react";
 import { CardItem } from "./itemsStyle";
 
-const Items = () => {
+const Items = ({cart, removeProduto,}) => {
+    console.log(cart)
+    
+    
+    
     return (
         <CardItem>
-            <p>
-                x0 Nome do Produto
-                <button>Remover</button>
-            </p>
+            {cart.map((produto) => {
+                return (
+                    
+                    <p key={produto.id}>
+                        Nome:{produto.name} Quantidade:{produto.amount}
+                        <button onClick={() => removeProduto(produto)}>Remover</button>
+                    </p>
+
+                    
+                    
+                )
+            })}
         </CardItem>
     )
 }
