@@ -4,7 +4,7 @@ import Filters from './Components/Filters/Filters';
 import Home from './Components/Home/Home';
 import Cart from './Components/ShoppingCart/Cart/Cart';
 import styled, { createGlobalStyle } from 'styled-components';
-import { Principal } from './styleApp';
+import { Principal, } from './styleApp';
 import ProductsList from './assets/productsList';
 import { useState } from 'react';
 
@@ -38,37 +38,32 @@ function App() {
 
 
 
-  const [minFilter, setMinFilter] = useState("")
+  const [minFilter, setMinFilter] = useState(-Infinity)
 
   const onChangeMinFilter = (event) => {
-    event.preventDefault()
     setMinFilter(event.target.value)
   }
 
-  const [maxFilter, setMaxFilter] = useState("")
+  const [maxFilter, setMaxFilter] = useState(Infinity)
 
   const onChangeMaxFilter = (event) => {
-    event.preventDefault()
     setMaxFilter(event.target.value)
   }
 
   const [searchFilter, setSearchFilter] = useState("")
 
   const onChangeSearchFilter = (event) => {
-    event.preventDefault()
     setSearchFilter(event.target.value)
   }
 
   const [cart, setCart] = useState([])
   const onChangeCart = (event) => {
-    event.preventDefault()
     setCart(event.target.value)
   }
 
   const [amount, setAmount] = useState("")
 
   const onChangeAmount = (event) => {
-    event.preventDefault()
     setAmount(event.target.value)
   }
 
@@ -110,8 +105,6 @@ function App() {
     }
   }
 
-
-
   return (
     <>
       <GlobalStyle />
@@ -131,6 +124,9 @@ function App() {
           amount={amount}
           onChangeAmount={onChangeAmount}
           adicionaProduto={adicionaProduto}
+          minFilter = {minFilter}
+          maxFilter = {maxFilter}
+          searchFilter = {searchFilter}
         />
         <Cart
           cart={cart}
@@ -138,7 +134,7 @@ function App() {
           amount={amount}
           onChangeAmount={onChangeAmount}
           removeProduto={removeProduto}
-          
+
         />
       </Principal>
     </>

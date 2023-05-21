@@ -16,11 +16,13 @@ const Cart = ({ cart,
             <h2>
                 Cart
             </h2>
-            <Items removeProduto={removeProduto} cart={cart} />
-
+            {cart.map((produto) => {
+                return (
+            <Items key={produto.id} removeProduto={removeProduto} produto = {produto} />
+            )
+        })}
             <p>
                 Valor Total: {money}
-                
             </p>
 
         </CardDoCart>
