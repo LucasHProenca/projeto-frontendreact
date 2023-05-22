@@ -6,7 +6,7 @@ import Cart from './Components/ShoppingCart/Cart/Cart';
 import styled, { createGlobalStyle } from 'styled-components';
 import { Principal, } from './styleApp';
 import ProductsList from './assets/productsList';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const GlobalStyle = createGlobalStyle`
 html{
@@ -105,6 +105,37 @@ function App() {
     }
   }
 
+  function salvarLocalStorage() {
+    const listaString = JSON.stringify(cart);
+    localStorage.setItem("lista", listaString);
+  }
+
+  function pegaItensLocalStorage() {
+    // recebe o valor do local storage em formato de string
+    const listaString = localStorage.getItem("lista");
+    // transforma o valor de volta
+    const listaArray = JSON.parse(listaString);
+    // salvo o valor no estado
+    if (listaArray) {
+      setCart(listaArray);
+    }
+  }
+
+  function removeItemLocalStorage() {
+    localStorage.removeItem("lista");
+  }
+  
+  useEffect(() => {
+    pegaItensLocalStorage();
+  }, []);
+
+  useEffect(() => {
+    if (cart.length > 0) {
+      salvarLocalStorage();
+    }
+  }, [cart]);
+  
+
   return (
     <>
       <GlobalStyle />
@@ -134,7 +165,7 @@ function App() {
           amount={amount}
           onChangeAmount={onChangeAmount}
           removeProduto={removeProduto}
-
+          removeItem = {removeItemLocalStorage}
         />
       </Principal>
     </>

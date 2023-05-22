@@ -4,6 +4,7 @@ import { CardProduto, TesteCard } from "./productCardStyle";
 const ProductCard = ({ 
     adicionaProduto,  produto }) => {
         
+        const money = (new Intl.NumberFormat('pt-Br', { style: 'currency', currency: 'BRL' }). format(produto.value))
     return (
                     <CardProduto >
                         <img src={produto.imageUrl} alt="Produto" />
@@ -11,7 +12,7 @@ const ProductCard = ({
                             {produto.name}
                         </p>
                         <p>
-                            R$ {produto.value}
+                            {money}
                         </p>
                         <button onClick={() => adicionaProduto(produto)}>
                             Adicionar ao carrinho
