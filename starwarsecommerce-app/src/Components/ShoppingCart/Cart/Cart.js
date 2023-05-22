@@ -3,8 +3,7 @@ import Items from "../Items/Items";
 import { CardDoCart } from "./cartStyle";
 
 const Cart = ({ cart,
-     removeProduto
-
+     removeProduto, removeItem
 }) => {
     let valorItems = cart.reduce((total, item) => total += (item.amount * item.value), 0)
 
@@ -24,6 +23,10 @@ const Cart = ({ cart,
             <p>
                 Valor Total: {money}
             </p>
+
+            <button onClick={removeItem}>
+                Limpar Carrinho
+            </button>
 
         </CardDoCart>
     )
