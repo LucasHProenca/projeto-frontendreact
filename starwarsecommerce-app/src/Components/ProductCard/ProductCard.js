@@ -1,16 +1,11 @@
 import React from "react";
 import { CardProduto, TesteCard } from "./productCardStyle";
 
-const ProductCard = ({ lista, cart,
-    onChangeCart,
-    amount,
-    onChangeAmount,
-    adicionaProduto }) => {
+const ProductCard = ({ 
+    adicionaProduto,  produto }) => {
+        
     return (
-        <TesteCard>
-            {lista.map((produto) => {
-                return(
-                    <CardProduto key={produto.id}>
+                    <CardProduto >
                         <img src={produto.imageUrl} alt="Produto" />
                         <p>
                             {produto.name}
@@ -22,9 +17,6 @@ const ProductCard = ({ lista, cart,
                             Adicionar ao carrinho
                         </button>
                     </CardProduto>
-                )
-            })}
-        </TesteCard>
     )
 }
 

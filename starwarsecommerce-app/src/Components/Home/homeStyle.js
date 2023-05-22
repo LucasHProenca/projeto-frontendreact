@@ -19,13 +19,13 @@ width: 63%;
 
 `
 
-// export const DisposicaoCards = styled.div`
-// display: flex;
-// flex-direction: row;
-// justify-content: flex-start;
-// align-items: center;
-// gap: 1rem;
-// width: 63%;
-// flex-wrap: wrap;
+export const DisposicaoCards = styled.div`
+ display: flex;
+ flex-direction: row;
+ justify-content: flex-start;
+ align-items: center;
+ gap: 1rem;
+ width: 63%;
+ flex-wrap: wrap;
 
-// `
+ `
