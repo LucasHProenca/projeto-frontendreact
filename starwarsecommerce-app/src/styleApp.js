@@ -1,10 +1,16 @@
 import styled from "styled-components";
 
 
-export const Principal = styled.body`
-display: grid;
-grid-template-columns: 1fr, 3fr, 1fr;
-grid-template-rows: 1fr, 1fr
+export const Principal = styled.main`
+display:flex;
+width: 100vw;
+flex-direction: row;
+`
+
+export const Corpo = styled.body`
+display: flex;
+flex-direction: column;
+width: 100vw;
 `
 
 

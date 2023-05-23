@@ -33,6 +33,20 @@ const ProductsList =
       name: "Dark Vader tamanho real",
       value: 10000.0,
       imageUrl: "https://picsum.photos/300/335?a=1"
+    },
+
+    {
+      id: 6,
+      name: "Chupacu de Goianinha",
+      value: 1500.0,
+      imageUrl: "https://picsum.photos/300/335?a=1"
+    },
+
+    {
+      id: 7,
+      name: "Robo branco",
+      value: 2200.0,
+      imageUrl: "https://picsum.photos/300/335?a=1"
     }
   ];
 

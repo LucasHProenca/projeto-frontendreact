@@ -1,20 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
 import Filters from './Components/Filters/Filters';
 import Home from './Components/Home/Home';
 import Cart from './Components/ShoppingCart/Cart/Cart';
-import styled, { createGlobalStyle } from 'styled-components';
-import { Principal, } from './styleApp';
+import { createGlobalStyle } from 'styled-components';
+import { Principal, Corpo } from './styleApp';
 import ProductsList from './assets/productsList';
 import { useEffect, useState } from 'react';
+import Header from './Components/Header/Header';
+import Footer from './Components/Footer/Footer';
 
 const GlobalStyle = createGlobalStyle`
 html{
-  font-size = 62.5%
+  font-size: 62.5%;
 }
 
 *{
-  box-sizing = border-box
+  box-sizing: border-box;
 }
 
 body {
@@ -124,7 +124,7 @@ function App() {
   function removeItemLocalStorage() {
     localStorage.removeItem("lista");
   }
-  
+
   useEffect(() => {
     pegaItensLocalStorage();
   }, []);
@@ -134,40 +134,62 @@ function App() {
       salvarLocalStorage();
     }
   }, [cart]);
-  
+
+  const [telaAtual, setTelaAtual] = useState("Home")
+
+  const mudarTela = (novaTela) => {
+    setTelaAtual(novaTela)
+  }
+
+  const renderizaTela = () => {
+    switch (telaAtual) {
+      case "Home":
+        return <Principal>
+          <Filters
+            minFilter={minFilter}
+            onChangeMinFilter={onChangeMinFilter}
+            maxFilter={maxFilter}
+            onChangeMaxFilter={onChangeMaxFilter}
+            searchFilter={searchFilter}
+            onChangeSearchFilter={onChangeSearchFilter}
+          />
+          <Home
+            lista={ProductsList}
+            cart={cart}
+            onChangeCart={onChangeCart}
+            amount={amount}
+            onChangeAmount={onChangeAmount}
+            adicionaProduto={adicionaProduto}
+            minFilter={minFilter}
+            maxFilter={maxFilter}
+            searchFilter={searchFilter}
+          />
+        </Principal>
+
+      case "Cart":
+        return <Principal>
+          <Cart
+            cart={cart}
+            onChangeCart={onChangeCart}
+            amount={amount}
+            onChangeAmount={onChangeAmount}
+            removeProduto={removeProduto}
+            removeItem={removeItemLocalStorage}
+            adicionaProduto = {adicionaProduto}
+          />
+        </Principal>
+    }
+  }
+
 
   return (
     <>
       <GlobalStyle />
-      <Principal>
-        <Filters
-          minFilter={minFilter}
-          onChangeMinFilter={onChangeMinFilter}
-          maxFilter={maxFilter}
-          onChangeMaxFilter={onChangeMaxFilter}
-          searchFilter={searchFilter}
-          onChangeSearchFilter={onChangeSearchFilter}
-        />
-        <Home
-          lista={ProductsList}
-          cart={cart}
-          onChangeCart={onChangeCart}
-          amount={amount}
-          onChangeAmount={onChangeAmount}
-          adicionaProduto={adicionaProduto}
-          minFilter = {minFilter}
-          maxFilter = {maxFilter}
-          searchFilter = {searchFilter}
-        />
-        <Cart
-          cart={cart}
-          onChangeCart={onChangeCart}
-          amount={amount}
-          onChangeAmount={onChangeAmount}
-          removeProduto={removeProduto}
-          removeItem = {removeItemLocalStorage}
-        />
-      </Principal>
+      <Corpo>
+      <Header mudarTela = {mudarTela}/>
+      {renderizaTela()}
+      <Footer />
+      </Corpo>
     </>
   );
 }

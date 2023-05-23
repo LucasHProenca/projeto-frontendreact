@@ -6,11 +6,8 @@ const Filters = ({ minFilter,
     maxFilter,
     onChangeMaxFilter,
     searchFilter,
-    onChangeSearchFilter }) => {
-
-    console.log(minFilter)
-    console.log(maxFilter)
-    console.log(searchFilter)
+    onChangeSearchFilter
+ }) => {
 
     return (
         <CardDoFilter>
@@ -18,15 +15,16 @@ const Filters = ({ minFilter,
                 Filters
             </h2>
             <label htmlFor="valorMinimo">Valor Mínimo:
-                <input min={0} type={"number"} id="valorMinimo" placeholder="Digite o valor mínimo" value={minFilter} onChange={onChangeMinFilter}></input>
+                <input min={0} type={"number"} id="valorMinimo" value={minFilter} onChange={onChangeMinFilter}></input>
             </label>
             <label htmlFor="valorMaximo">Valor Máximo:
-                <input min={0} type={"number"} id="valorMaximo" placeholder="Digite o valor máximo" value={maxFilter} onChange={onChangeMaxFilter}></input>
+                <input min={0} type={"number"} id="valorMaximo" value={maxFilter} onChange={onChangeMaxFilter}></input>
             </label>
 
             <label htmlFor="buscaNome">Busca por nome:
-                <input id="buscaNome" placeholder="Digite o nome do produto" value={searchFilter} onChange={onChangeSearchFilter}></input>
+                <input id="buscaNome" value={searchFilter} onChange={onChangeSearchFilter}></input>
             </label>
+
         </CardDoFilter>
     )
 }
