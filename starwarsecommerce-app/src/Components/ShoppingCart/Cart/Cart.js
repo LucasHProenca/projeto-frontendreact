@@ -22,7 +22,7 @@ const Cart = ({ cart,
     return (
         <CardDoCart>
             <TituloCart>
-                Cart
+                Carrinho
             </TituloCart>
             {cart.map((produto) => {
                 return (

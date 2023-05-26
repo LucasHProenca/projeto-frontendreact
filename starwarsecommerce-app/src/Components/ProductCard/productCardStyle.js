@@ -79,6 +79,7 @@ button {
 
  @media screen and (min-device-width : 320px) and (max-device-width : 480px) {
   width: 80vw;
+  margin-bottom: 1rem;
 
   img{
     height: 60%;
