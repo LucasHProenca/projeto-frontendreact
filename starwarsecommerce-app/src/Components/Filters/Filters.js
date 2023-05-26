@@ -12,7 +12,7 @@ const Filters = ({ minFilter,
     return (
         <CardDoFilter>
             <h2>
-                Filters
+                Filtros
             </h2>
             <label htmlFor="valorMinimo">Valor Mínimo:
                 <input min={0} type={"number"} id="valorMinimo" value={minFilter} onChange={onChangeMinFilter}></input>

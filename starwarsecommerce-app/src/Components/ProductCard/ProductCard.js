@@ -1,13 +1,14 @@
 import React from "react";
-import { CardProduto,} from "./productCardStyle";
+import { CardProduto} from "./productCardStyle";
 
 const ProductCard = ({ 
-    adicionaProduto,  produto }) => {
+    adicionaProduto,  produto,}) => {
         
         const money = (new Intl.NumberFormat('pt-Br', { style: 'currency', currency: 'BRL' }). format(produto.value))
     return (
                     <CardProduto >
                         <img src={produto.imageUrl} alt="Produto" />
+                        
                         <p>
                             {produto.name}
                         </p>
@@ -17,6 +18,7 @@ const ProductCard = ({
                         <button onClick={() => adicionaProduto(produto)}>
                             Adicionar ao carrinho
                         </button>
+                        
                     </CardProduto>
     )
 }
