@@ -1,8 +1,9 @@
 import React from "react";
 import { HeaderStyle } from "./headerStyle";
+import logo from "./midia/17.png"
 
 
-const Header = ({ mudarTela }) => {
+const Header = ({ mudarTela, cart }) => {
 
     const mostrarTelaHome = () => {
         mudarTela("Home")
@@ -11,14 +12,25 @@ const Header = ({ mudarTela }) => {
     const mostrarTelaCart = () => {
         mudarTela("Cart")
     }
+
+    let carrinho = cart.length
+
+    const mostrarCarrinho = () => {
+        if(carrinho > 0) {
+            return carrinho
+        } else {
+            return carrinho = []
+        }
+    }
     return (
         <HeaderStyle>
-            <h2>
-                Oi eu sou o header
-            </h2>
+            <img src={logo} alt = "Logo"/>
 
-            <button onClick={mostrarTelaHome}>Home</button>
-            <button onClick={mostrarTelaCart}>Cart</button>
+            <div>
+            <h3 onClick={mostrarTelaHome}>Loja</h3>
+            <p onClick={mostrarTelaCart}>🛸</p>
+            <span>{mostrarCarrinho()}</span>
+            </div>
         </HeaderStyle>
     )
 }

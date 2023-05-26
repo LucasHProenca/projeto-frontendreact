@@ -1,5 +1,5 @@
 import React from "react";
-import { CardItem, Button } from "./itemsStyle";
+import { CardItem, Button, } from "./itemsStyle";
 
 const Items = ({ produto, removeProduto, adicionaProduto }) => {
     const money = (new Intl.NumberFormat('pt-Br', { style: 'currency', currency: 'BRL' }). format(produto.value))

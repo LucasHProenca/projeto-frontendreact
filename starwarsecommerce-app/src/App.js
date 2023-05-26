@@ -7,6 +7,8 @@ import ProductsList from './assets/productsList';
 import { useEffect, useState } from 'react';
 import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
+import InformacoesUsuario from './Components/InformacoesUsuario/InformacoesUsuario';
+import Sugestoes from './Components/Sugestoes/Sugestoes';
 
 const GlobalStyle = createGlobalStyle`
 html{
@@ -19,7 +21,7 @@ html{
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Fantasy'
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -94,10 +96,15 @@ function App() {
           return item
         }
       })
-
       setCart(newCart)
-
-    } else {
+    } else if(cart.length === 1){
+      const newCart = cart.filter((item) => {
+        return item.id !== produto.id
+      })
+      removeItemLocalStorage()
+      setCart(newCart)
+      console.log("oxeee")
+    }else {
       const newCart = cart.filter((item) => {
         return item.id !== produto.id
       })
@@ -163,6 +170,7 @@ function App() {
             minFilter={minFilter}
             maxFilter={maxFilter}
             searchFilter={searchFilter}
+            mudarTela={mudarTela}
           />
         </Principal>
 
@@ -175,20 +183,30 @@ function App() {
             onChangeAmount={onChangeAmount}
             removeProduto={removeProduto}
             removeItem={removeItemLocalStorage}
-            adicionaProduto = {adicionaProduto}
+            adicionaProduto={adicionaProduto}
+            mudarTela={mudarTela}
           />
         </Principal>
+
+      case "Informações":
+        return (
+          <InformacoesUsuario mudarTela={mudarTela} setCart = {setCart} removeItem = {removeItemLocalStorage} />
+        )
+
+      case "Sugestões":
+        return (
+          <Sugestoes mudarTela={mudarTela} />
+        )
     }
   }
-
-
+ 
   return (
     <>
       <GlobalStyle />
       <Corpo>
-      <Header mudarTela = {mudarTela}/>
-      {renderizaTela()}
-      <Footer />
+        <Header mudarTela={mudarTela} cart={cart} />
+        {renderizaTela()}
+        <Footer mudarTela={mudarTela} />
       </Corpo>
     </>
   );
