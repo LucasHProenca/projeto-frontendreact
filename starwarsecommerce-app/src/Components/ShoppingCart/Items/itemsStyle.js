@@ -47,7 +47,7 @@ p{
   font-size: 1.5rem;
 
   img{
-    width: 40%;
+    width: 50%;
   }
 }
 `

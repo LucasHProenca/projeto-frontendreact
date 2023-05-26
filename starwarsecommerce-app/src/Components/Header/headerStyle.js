@@ -36,7 +36,9 @@ position: absolute;
 font-size: 1.6rem;
 top: 0;
 margin-top: 1.5rem;
-font-family: Fantasy;
+background-color: #1289AB;
+box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+border-radius: 2.5rem;
 }
 
 h3:hover{
@@ -71,17 +73,17 @@ span{
 
     @media screen and (min-device-width : 320px) and (max-device-width : 480px) {
         div{
-            margin-left: 45%;
+            margin-left: 35%;
             font-size: 1.4rem;
         }
 
         img{
-            width: 20%;
+            width: 30%;
         }
 
         span{
             font-size: 1rem;
-            margin-top: 0.8rem;
+            margin-top: 2vh;
         }
      }
 `
