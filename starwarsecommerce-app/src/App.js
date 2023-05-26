@@ -179,6 +179,7 @@ function App() {
           <Cart
             cart={cart}
             onChangeCart={onChangeCart}
+            setCart = {setCart}
             amount={amount}
             onChangeAmount={onChangeAmount}
             removeProduto={removeProduto}
