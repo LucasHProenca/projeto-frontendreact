@@ -3,13 +3,18 @@ import Items from "../Items/Items";
 import { CardDoCart, TituloCart, BotaoZinho, ValorTotal } from "./cartStyle";
 
 const Cart = ({ cart,
-    removeProduto, removeItem, adicionaProduto, mudarTela
+    removeProduto, removeItem, adicionaProduto, mudarTela, setCart
 }) => {
     let valorItems = cart.reduce((total, item) => total += (item.amount * item.value), 0)
 
     const money = (new Intl.NumberFormat('pt-Br', { style: 'currency', currency: 'BRL' }).format(valorItems))
 
     console.log(valorItems)
+
+    const removerItem = () => {
+        removeItem()
+        setCart([])
+    }
 
     const mostrarTelaHome = () => {
         if(cart.length > 0) {
@@ -33,7 +38,7 @@ const Cart = ({ cart,
                 Valor Total: {money}
             </ValorTotal>
             <p>
-                <BotaoZinho onClick={removeItem}>
+                <BotaoZinho onClick={removerItem}>
                     Limpar Carrinho
                 </BotaoZinho>
                 <BotaoZinho onClick={mostrarTelaHome}>
