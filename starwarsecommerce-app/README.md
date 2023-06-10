@@ -5,7 +5,7 @@ fanático.
 A parte inicial do projeto foi realizada pensando em telas maiores que 1000 pixels até um máximo de 1280 pixels.
 Tendo em vista atender ao máximo de dispositivos possíveis, também foram adicionadas três outras formatações, entre 801 e 1000 pixels de largura para telas intermediárias, entre 481 e 800 pixels de largura para tablets e entre 320 até 480 pixels de largura para celulares smartphones.
 
-O cabeçalho conta com o logo e duas opções de navegação, sendo uma a loja e a outra o carrinho (representado pela nave espacial), os mesmos transmitem ao usuário uma sensação de botão clicado e permitem a navegação entre a tela principal onde é possível visualizar todos os produtos disponíveis, quando o produto é selecionado o mesmo fica em destaque e um botão de adicionar ao carrinho aparece. Também é possivel realizar o filtro por nome, valor ou ordenação, seja crescente ou descrescente. Quando um produto é adicionado ao carrinho, um pop-up aparece pouco acima do icone da nave espacial, indicando quantos produtos diferentes foram adicionados.
+O cabeçalho conta com o logo e duas opções de navegação, sendo uma a loja e a outra o carrinho (representado pela nave espacial), os mesmos transmitem ao usuário uma sensação de botão clicado e permitem a navegação entre a tela principal onde é possível visualizar todos os produtos disponíveis, quando o produto é selecionado o mesmo fica em destaque e um botão de adicionar ao carrinho aparece. Também é possivel realizar o filtro por nome, valor ou ordenação, seja crescente, descrescente, de A-Z e de Z-A. Quando um produto é adicionado ao carrinho, um pop-up aparece pouco acima do icone da nave espacial, indicando quantos produtos diferentes foram adicionados.
 Já na tela do carrinho, é possivel visualizar os produtos adicionados, aumentar ou diminuir a quantidade, o valor total, assim como um botão que limpa todo o carrinho e também um botão de compra, que permite ao usuário avançar para a tela de finalização caso exista algum produto dentro do carrinho, onde o mesmo adiciona algumas informações para poder finalizar o pedido.
 Assim que a compra é finalizada, o usuário recebe uma notificação avisando que o processo foi bem sucedido, seu carrinho é limpo e o mesmo retorna a tela inicial. 
 Já no rodapé é possível visualizar as redes sociais para contato com a loja, e também uma opção chamada "fale conosco", onde o usuário pode solicitar algum produto que gostaria de ver dentro da loja.
@@ -13,7 +13,7 @@ Todas os conteúdos que possuem a possibilidade de interação com o usuário s�
 
 Tecnologias utilizadas: React Hooks, Styled-Components e Local Storage.
 
-Link do Surge: https://toy-star-faruqi-lhp.surge.sh/
+Link do Surge: https://toy-star-lucashproenca.surge.sh/
 
 Print das telas:
 
