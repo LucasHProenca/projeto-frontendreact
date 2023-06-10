@@ -32,18 +32,37 @@ const Home = ({ lista,
         })
         .sort((a, b) => {
             if (ordination === "Crescente") {
-                if (a.name < b.name) {
+                if (a.value < b.value) {
                     return -1;
                 }
-                if (a.name > b.name) {
+                if (a.value > b.value) {
                     return 1;
                 }
             }
             if (ordination === "Decrescente") {
-                if (a.name > b.name) {
+                if (a.value > b.value) {
                     return -1;
                 }
-                if (a.name < b.name) {
+                if (a.value < b.value) {
+                    return 1;
+                }
+            }
+            return 0;
+        })
+        .sort((a, b) => {
+            if(ordination === "A-z") {
+                if(a.name < b.name) {
+                    return -1;
+                }
+                if(a.name > b.name) {
+                    return 1;
+                }
+            }
+            if(ordination === "Z-a") {
+                if(a.name > b.name) {
+                    return -1;
+                }
+                if(a.name < b.name) {
                     return 1;
                 }
             }
@@ -69,8 +88,10 @@ const Home = ({ lista,
                     Ordenação:
                     <select value={ordination} onChange={onChangeOrdination}>
                         <option value="">Selecionar</option>
-                        <option value="Crescente">Crescente</option>
-                        <option value="Decrescente">Decrescente</option>
+                        <option value="Crescente">Menor Preço</option>
+                        <option value="Decrescente">Maior Preço</option>
+                        <option value="A-z">De A a Z</option>
+                        <option value="Z-a">De Z a A</option>
                     </select>
                 </p>
             </OrdemProdutos>
